@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card">
+      <div class="card" [hidden]="formSubmitted">
         <div class="card-body">
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div *ngFor="let page of formDefinition.pages; let i = index">
@@ -39,6 +39,9 @@
             </div>
           </form>
         </div>
+      </div>
+      <div class="card" [hidden]="!formSubmitted">
+        <p>Thanks for your request - we'll be in touch with your report shortly!</p>
       </div>
     </div>
   </div>

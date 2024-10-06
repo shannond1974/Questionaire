@@ -1,3 +1,7 @@
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { ApiService } from '../rest/api.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import dayjs from 'dayjs';
@@ -17,6 +21,8 @@ export class FormComponent {
   public page1Valid=false;
   public page2Valid=false;
   public page3Valid=false;
+  public page4Valid=false;
+  public formSubmitted=false;
 
   formDefinition: FormDefinition = {
     pages: [
@@ -62,7 +68,7 @@ export class FormComponent {
               },
               {
                 label: 'More than 24 months',
-                value: 'Less than 6 months'
+                value: 'More than 24 months'
               }
             ],
             visible: (model: any) => dayjs().diff(model.date_of_birth, 'years') > 20
@@ -72,7 +78,7 @@ export class FormComponent {
             label: 'Have you lived in any other countries for more than 5 years since turning 17 years old?',
             type: 'multiselect',
             options: countries,
-            visible: (model: any) => (dayjs().diff(model.date_of_birth, 'years') > 20 && ['6-12m', '12-24m', '>24m'].includes(model.length_of_stay))
+            visible: (model: any) => (dayjs().diff(model.date_of_birth, 'years') > 20 && ['6-12 months', '12-24 months', 'More than 24 months'].includes(model.length_of_stay))
           },
           {
             key: 'long_visits',
@@ -156,23 +162,56 @@ export class FormComponent {
             ]
           }
         ]
-      }
+      },
+      {fields:[
+        
+          {
+            key: 'first_name',
+            label: 'Enter your first name',
+            type: 'text'
+          },
+          {
+            key: 'email',
+            label: 'Enter your email',
+            type: 'text'
+          }
+        
+      ]}
     ]
   }
 
   form: FormGroup;
   currentPage = 0;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private http: HttpClient,private apiService: ApiService) {
     this.form = this.createForm();
     this.form.valueChanges.subscribe(values => {
+      if(values.other_countries==''){
+        values.other_countries=[''];
+        
+      }
       if(values.date_of_birth!='' && values.country_of_residence!='' && values.nationality!=''){
         this.page1Valid=true;    
       }else{
         this.page1Valid=false;
       }
-
+      if(values.length_of_stay!='' && values.other_countries!='' && values.long_visits!='' && values.visa_type!=''){
+        this.page2Valid=true;
+      }else{
+        this.page2Valid=false;
+      }
+      if(values.study_level!='' && values.extra_info!=''){
+        this.page3Valid=true;
+      }else{
+        this.page3Valid=false;
+      }
+      if(values.first_name!='' && values.email!=''){
+        this.page4Valid=true;
+      }else{
+        this.page4Valid=false;
+      }
     });
+    
   }
 
   createForm() {
@@ -186,9 +225,14 @@ export class FormComponent {
   }
 
   onSubmit() {
+    this.apiService.saveAnswers(this.form.value).subscribe(data => {console.log(data);});
+    this.formSubmitted = true;  
+    
     if (this.form.valid) {
+
       console.log(this.form.value);
       // Handle form submission
+      this.apiService.saveAnswers(this.form.value);
     } else {
       // Mark all fields as touched to show validation errors
       Object.keys(this.form.controls).forEach(key => {
@@ -241,6 +285,9 @@ export class FormComponent {
       result=true;
     }
     if(currentPage==2){
+      result=true;
+    }
+    if(currentPage==3){
       result=true;
     }
     return result;
