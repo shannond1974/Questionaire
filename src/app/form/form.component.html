@@ -5,8 +5,8 @@
         <div class="card-body">
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div *ngFor="let page of formDefinition.pages; let i = index">
-              <div *ngIf="i === currentPage">
-                <h2 class="mb-4 text-center">Section {{ i + 1 }}</h2>
+              <div>
+                
                 <div *ngFor="let field of page.fields">
                   <div *ngIf="isFieldVisible(field)" class="mb-3">
                     <label [for]="field.key" class="form-label">{{ field.label }}</label>
@@ -28,12 +28,10 @@
             </div>
             <div class="d-flex justify-content-between mt-4">
               <div class="col-md-6">
-                <button type="button" (click)="previousPage()" [hidden]="currentPage === 0" class="btn btn-secondary">Previous</button>  
               </div>
               <div class="col-md-5"></div>
               <div class="col-md-1">
-                <button type="button"  (click)="nextPage()" *ngIf="currentPage < formDefinition.pages.length - 1" class="btn btn-primary">Next</button>
-                <button type="submit" *ngIf="currentPage === formDefinition.pages.length - 1" class="btn btn-success">Submit</button>
+                <button type="submit" *ngIf="fullFormValid" class="btn btn-primary">Submit</button>
               </div>
               <div class="col-md-1"></div>
             </div>

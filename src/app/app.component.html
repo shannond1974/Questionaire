@@ -1,9 +1,175 @@
-<app-navbar></app-navbar>
+<app-header></app-header>
 <div class="row" style="min-height: 50px;"></div>
-
-
-  <div class="row justify-content-center" style="padding-top: 50px; padding-bottom: 50px;">
-    <app-form></app-form>
+<main id="content" role="main">
+  <!-- Hero -->
+  <div class="container overflow-hidden content-space-t-4">
+    <div class="w-lg-75 text-center mx-lg-auto mb-9">
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
   </div>
+  <!-- End Hero -->
+   
+   
+    <!-- Front Demos -->
+    <div class="container" [hidden]="onForm">
+      
+      <!-- Main Demo -->
+      <div class="row align-items-md-center content-space-2 content-space-b-lg-2">
+        <div class="col-md-6 order-md-2 mb-10 mb-md-0">
+          <!-- Browser Device -->
+          <figure class="device-browser">
+            <div class="device-browser-header">
+              <div class="device-browser-header-btn-list">
+                <span class="device-browser-header-btn-list-btn"></span>
+                <span class="device-browser-header-btn-list-btn"></span>
+                <span class="device-browser-header-btn-list-btn"></span>
+              </div>
+              <div class="device-browser-header-browser-bar">www.airie.co.nz</div>
+            </div>
+
+            <div class="device-browser-frame">
+              <img class="device-browser-img" src="./assets/img/airie/Airie0.png" alt="Image Description">
+            </div>
+
+            <div class="position-absolute bottom-0 start-0 w-100 h-100 bg-soft-primary zi-n1 mb-n6 ms-n6"></div>
+          </figure>
+          <!-- End Browser Device -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-6">
+          <div class="pe-md-7">
+            <div class="mb-5">
+              
+              <h2 class="mb-3">Complete Simple Questions</h2>
+              <p class="fs-4">Complete some simple questions about your travel and intentions.</p>
+            </div>
+            <button class="btn btn-primary" (click)="gotoForm()" >Go to Questions! <i class="bi-box-arrow-up-right ms-2"></i></button>
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- Main Demo -->
+      <div class="row align-items-md-center content-space-2 content-space-b-lg-2">
+        <div class="col-md-6 order-md-2 mb-10 mb-md-0">
+          <!-- Browser Device -->
+          <figure class="device-browser">
+            <div class="device-browser-header">
+              <div class="device-browser-header-btn-list">
+                <span class="device-browser-header-btn-list-btn"></span>
+                <span class="device-browser-header-btn-list-btn"></span>
+                <span class="device-browser-header-btn-list-btn"></span>
+              </div>
+              <div class="device-browser-header-browser-bar">www.airie.co.nz</div>
+            </div>
+
+            <div class="device-browser-frame">
+              <img class="device-browser-img" src="./assets/img/airie/Airie1.png" alt="Image Description">
+            </div>
+
+            <div class="position-absolute bottom-0 start-0 w-100 h-100 bg-soft-primary zi-n1 mb-n6 ms-n6"></div>
+          </figure>
+          <!-- End Browser Device -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-6">
+          <div class="pe-md-7">
+            <div class="mb-5">
+              
+              <h2 class="mb-3">Personalised Report</h2>
+              <p class="fs-4">Get a personalised custom report based on your individual needs (anonymous if you wish).</p>
+            </div>
+           
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Step 2 Demo -->
+
+      <!-- Step 3 Demo -->
+      <div class="row align-items-md-center content-space-2 content-space-b-lg-2">
+        <div class="col-md-6 order-md-2 mb-10 mb-md-0">
+          <!-- Browser Device -->
+          <figure class="device-browser">
+            <div class="device-browser-header">
+              <div class="device-browser-header-btn-list">
+                <span class="device-browser-header-btn-list-btn"></span>
+                <span class="device-browser-header-btn-list-btn"></span>
+                <span class="device-browser-header-btn-list-btn"></span>
+              </div>
+              <div class="device-browser-header-browser-bar">www.airie.co.nz</div>
+            </div>
+
+            <div class="device-browser-frame">
+              <img class="device-browser-img" src="./assets/img/airie/Airie2.png" alt="Image Description">
+            </div>
+
+            <div class="position-absolute bottom-0 start-0 w-100 h-100 bg-soft-danger zi-n1 mb-n6 ms-n6"></div>
+          </figure>
+          <!-- End Browser Device -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-6">
+          <div class="pe-md-7">
+            <div class="mb-5">
+              
+
+              <h2 class="mb-3">Detailed Information - in one place.</h2>
+              <p class="fs-4">Powerful AI model combined with review of Immigration New Zealand experts provides a customised, detailed summary of what's required.</p>
+            </div>
+           
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Step 2 Demo -->
+             <!-- Step 4 Demo -->
+      <div class="row align-items-md-center content-space-2 content-space-b-lg-2">
+        <div class="col-md-6 order-md-2 mb-10 mb-md-0">
+          <!-- Browser Device -->
+          <figure class="device-browser">
+            <div class="device-browser-header">
+              <div class="device-browser-header-btn-list">
+                <span class="device-browser-header-btn-list-btn"></span>
+                <span class="device-browser-header-btn-list-btn"></span>
+                <span class="device-browser-header-btn-list-btn"></span>
+              </div>
+              <div class="device-browser-header-browser-bar">www.airie.co.nz</div>
+            </div>
+
+            <div class="device-browser-frame">
+              <img class="device-browser-img" src="./assets/img/airie/Airie3.png" alt="Image Description">
+            </div>
+
+            <div class="position-absolute bottom-0 start-0 w-100 h-100 bg-soft-danger zi-n1 mb-n6 ms-n6"></div>
+          </figure>
+          <!-- End Browser Device -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-6">
+          <div class="pe-md-7">
+            <div class="mb-5">
+              
+
+              <h2 class="mb-3">Powerful Insights.</h2>
+              <p class="fs-4">Custom insights, valuable information not found anywhere else.</p>
+            </div>
+           
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Step 4 Demo -->
+   </div>
+    <!-- End Front Demos -->
+    <div class="row justify-content-center" style="padding-top: 50px; padding-bottom: 50px;" [hidden]="!onForm">
+      <app-form></app-form>
+    </div>
+  </main>
+
+  
 
 <router-outlet />

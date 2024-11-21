@@ -9,10 +9,14 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'sample';
-  
+  public onForm:boolean=false;
 
   ngOnInit() {
   
+  }
+
+  gotoForm() {
+    this.onForm = true;
   }
 
 }

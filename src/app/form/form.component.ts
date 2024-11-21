@@ -22,6 +22,7 @@ export class FormComponent {
   public page2Valid=false;
   public page3Valid=false;
   public page4Valid=false;
+  public fullFormValid=false;
   public formSubmitted=false;
 
   formDefinition: FormDefinition = {
@@ -210,6 +211,11 @@ export class FormComponent {
       }else{
         this.page4Valid=false;
       }
+      if(this.page1Valid &&  this.page4Valid){
+        this.fullFormValid=true;
+      }else{
+        this.fullFormValid=false;
+      }
     });
     
   }
@@ -230,7 +236,7 @@ export class FormComponent {
     
     if (this.form.valid) {
 
-      console.log(this.form.value);
+      
       // Handle form submission
       this.apiService.saveAnswers(this.form.value);
     } else {
@@ -242,30 +248,7 @@ export class FormComponent {
     }
   }
 
-  nextPage() {
-    
-    if (this.isCurrentPageValid(this.currentPage)) {
-      if (!this.formDefinition.pages[this.currentPage + 1].fields.some((field: any) => field.visible && field.visible(this.form.value)) && this.currentPage < this.formDefinition.pages.length - 2) {
-        
-        this.currentPage = this.currentPage + 2;
-      } else {
-        
-        if (this.currentPage < this.formDefinition.pages.length - 1) {
-          
-          this.currentPage++;
-        }
-      }
-    } else {
-      
-      this.markCurrentPageAsTouched();
-    }
-  }
-
-  previousPage() {
-    if (this.currentPage > 0) {
-      this.currentPage--;
-    }
-  }
+  
 
   isFieldVisible(field: any): boolean {
     if (field.visible && typeof field.visible === 'function') {
