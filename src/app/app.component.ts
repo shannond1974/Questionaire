@@ -17,20 +17,7 @@ export class AppComponent {
   public processedReport:string='';
   ngOnInit() {
   
-    this.route.queryParams.subscribe(params => {
-      console.log(params);
-      const answerSetGet = params['AnswerSet'];
-      this.answerSet=answerSetGet;
-      this.reportOnlyView=true;
-      if (this.answerSet!=''){
-        this.apiService.getPublishedReport(this.answerSet).subscribe(data => {
-          console.log(data);
-          this.processedReport=data.processedContent;
-          
-        });
-      }
-      
-      });
+    
   }
   constructor(private route: ActivatedRoute,private http: HttpClient,private apiService: ApiService) {
 
