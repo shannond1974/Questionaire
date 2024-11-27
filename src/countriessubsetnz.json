@@ -1,31 +1,30 @@
 [
 
-    {
-      "label": "China",
-      "value": "CN"
-    },
+  {
+    "label": "China",
+    "value": "China"
+  },
 
-    {
-      "label": "India",
-      "value": "IN"
-    },
+  {
+    "label": "India",
+    "value": "India"
+  },
 
-    {
-      "label": "Japan",
-      "value": "JP"
-    },
-    {
-      "label": "New Zealand",
-      "value": "NZ"
-    },
+  {
+    "label": "Japan",
+    "value": "Japan"
+  },
 
-    {
-      "label": "South Korea",
-      "value": "KP"
-    },
-    {
-      "label": "Philippines",
-      "value": "PH"
-    }
-  ]
-  
+  {
+    "label": "New Zealand",
+    "value": "New Zealand"
+  },
+  {
+    "label": "South Korea",
+    "value": "South Korea"
+  },
+  {
+    "label": "Philippines",
+    "value": "Philippines"
+  }
+]

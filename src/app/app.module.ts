@@ -10,6 +10,7 @@ import {Header} from './UIComponents/app.header';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormComponent } from './form/form.component';
+import { SafeHtmlPipe } from './safeHTMLPipe';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormComponent } from './form/form.component';
     AppComponent,
     Header,
     Navbar,
-    FormComponent
+    FormComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule, HttpClientModule,

@@ -231,14 +231,15 @@ export class FormComponent {
   }
 
   onSubmit() {
+    console.log(this.form.value)
     this.apiService.saveAnswers(this.form.value).subscribe(data => {console.log(data);});
     this.formSubmitted = true;  
-    
-    if (this.form.valid) {
+    this.fullFormValid=true;
+    if (this.fullFormValid) {
 
       
       // Handle form submission
-      this.apiService.saveAnswers(this.form.value);
+      //this.apiService.saveAnswers(this.form.value);
     } else {
       // Mark all fields as touched to show validation errors
       Object.keys(this.form.controls).forEach(key => {

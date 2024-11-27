@@ -17,7 +17,7 @@
                         <option *ngFor="let option of field.options" [value]="option.value">{{ option.label }}</option>
                       </select>
                       <select *ngSwitchCase="'multiselect'" [id]="field.key" [formControlName]="field.key" multiple class="form-select">
-                        <option *ngFor="let option of field.options" [value]="option.value">{{ option.label }}</option>
+                        <option *ngFor="let option of field.options" [value]="option.label">{{ option.label }}</option>
                       </select>
                       <input *ngSwitchDefault [id]="field.key" [type]="field.type" [formControlName]="field.key" class="form-control">
                     </ng-container>

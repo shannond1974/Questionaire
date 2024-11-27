@@ -1,6 +1,15 @@
 <app-header></app-header>
 <div class="row" style="min-height: 50px;"></div>
-<main id="content" role="main">
+<main id="content" role="main" *ngIf="reportOnlyView">
+  <div class="row align-items-md-center content-space-2 content-space-b-lg-2">
+    
+    <div class="card">
+      <div  [innerHtml]="processedReport | safeHtml"></div>
+    </div>
+   
+  </div>
+</main>
+<main id="content" role="main" *ngIf="!reportOnlyView">
   <!-- Hero -->
   <div class="container overflow-hidden content-space-t-4">
     <div class="w-lg-75 text-center mx-lg-auto mb-9">
